@@ -1,0 +1,14 @@
+.page {
+  border: 1px solid #636262;
+  margin: 10px;
+  /* padding: 10px; */
+  background-color: #f9f9f9;
+  width: 182px;
+  height: 257px;
+}
+.cut {
+  border: 1px solid #a2a2a2;
+  margin: 5px;
+  padding: 5px;
+  background-color: #ffffff;
+}

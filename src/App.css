@@ -1,0 +1,128 @@
+:root {
+  /* ============================================
+     색상 시스템 (60-30-10 Rule)
+  ============================================ */
+
+  /* 메인 배경 (60%) */
+  --bg-primary: #fefeff;
+  --bg-secondary: #f8f7fe;
+  --bg-tertiary: #edede9;
+
+  /* 포인트 컬러 (30%) - 블루그레이 계열 */
+  --color-primary-lighter: #c5cfdd; /* 더 연한 파랑 */
+  --color-primary-light: #a7b4c9; /* 연한 파랑 */
+  --color-primary: #8998b1; /* 메인 파랑 */
+  --color-primary-dark: #6b7a98; /* 진한 파랑 */
+  --color-primary-darker: #4e5d7f; /* 더 진한 파랑 */
+
+  /* 서브 컬러 (10%) - 악센트 */
+  --color-accent: #b89fe8; /* 보라 악센트 (배경과 조화) */
+  --color-accent-light: #d1c2f2;
+  --color-accent-dark: #9a7bd4;
+
+  /* 상태 컬러 */
+  --color-error: #e05555;
+  --color-error-light: #f3a5a5;
+  --color-error-dark: #c93a3a;
+
+  --color-success: #52c787;
+  --color-success-light: #a0e5ba;
+  --color-success-dark: #3aa86a;
+
+  --color-warning: #f5b841;
+  --color-warning-light: #fbdb93;
+  --color-warning-dark: #e09a1f;
+
+  --color-info: #5ba3e0;
+  --color-info-light: #a5cfed;
+  --color-info-dark: #3e85c7;
+
+  /* 그라디언트 */
+  --gradient-primary: linear-gradient(135deg, #8998b1 0%, #6b7a98 100%);
+  --gradient-accent: linear-gradient(135deg, #b89fe8 0%, #8998b1 100%);
+  --gradient-soft: linear-gradient(180deg, #f8f7fe 0%, #f0edfd 100%);
+
+  /* 텍스트 컬러 */
+  --text-primary: #1f1f1f;
+  --text-secondary: #4a4a4a;
+  --text-tertiary: #7a7a7a;
+  --text-disabled: #b0b0b0;
+  --text-white: #ffffff;
+  --text-link: #6b7a98;
+  --text-link-hover: #4e5d7f;
+
+  /* 테두리 컬러 */
+  --border-light: #e5e3f2;
+  --border-medium: #d0cddf;
+  --border-dark: #a7b4c9;
+  --border-focus: #8998b1;
+
+  /* 그림자 */
+  --shadow-xs: 0 1px 2px rgba(31, 31, 31, 0.05);
+  --shadow-sm: 0 2px 4px rgba(31, 31, 31, 0.08);
+  --shadow-md: 0 4px 8px rgba(31, 31, 31, 0.12);
+  --shadow-lg: 0 8px 16px rgba(31, 31, 31, 0.15);
+  --shadow-xl: 0 12px 24px rgba(31, 31, 31, 0.18);
+  --shadow-2xl: 0 20px 40px rgba(31, 31, 31, 0.22);
+  --shadow-inner: inset 0 2px 4px rgba(31, 31, 31, 0.08);
+
+  /* 오버레이 */
+  --overlay-light: rgba(240, 237, 253, 0.8);
+  --overlay-medium: rgba(240, 237, 253, 0.92);
+  --overlay-dark: rgba(31, 31, 31, 0.5);
+
+  /* ============================================
+     레이아웃 & 간격
+  ============================================ */
+
+  /* 간격 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* 둥근 모서리 */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-xl-1: 23px;
+  --radius-full: 9999px;
+
+  /* 컨테이너 너비 */
+  --container-xs: 480px;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  /* ============================================
+     타이포그래피
+     ============================================ */
+
+  /* 폰트 크기 */
+  --font-xs: 0.75rem; /* 12px */
+  --font-sm: 0.875rem; /* 14px */
+  --font-base: 1rem; /* 16px */
+  --font-lg: 1.125rem; /* 18px */
+  --font-xl: 1.25rem; /* 20px */
+  --font-2xl: 1.5rem; /* 24px */
+  --font-3xl: 1.875rem; /* 30px */
+  --font-4xl: 2.25rem; /* 36px */
+
+  /* 폰트 굵기 */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* 줄 간격 */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  --leading-loose: 2;
+}

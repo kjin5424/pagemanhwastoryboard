@@ -1,0 +1,130 @@
+/*
+uiLayout: {
+  sidebarPosition: 'left' | 'top'
+}
+
+//AppLayout 같은 상위 레이아웃 컴포넌트에서 분기
+//CSS는 결과 표현만 담당
+
+▶ 양면보기 / 단면보기
+[판단]
+→ 무조건 상태로 가져가야 함
+단순 클래스 토글 아님
+
+[이유]
+양면보기는: 페이지 쌍(pair) 개념이 생김 
+          페이지 인덱싱/표시 로직이 바뀜
+          Cut, Memo, 선택 포커스까지 영향
+pageView: {
+  mode: 'single' | 'spread'
+}
+
+▶ 양면보기 시 시작 페이지 (짝수/홀수)
+pageView: {
+  mode: 'single' | 'spread',
+  spreadStart: 'odd' | 'even'
+}
+
+▶ 전체 레이아웃 확대 / 축소
+uiScale: {
+  zoom: number // 0.5 ~ 2.0
+}
+*/
+main {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--bg-tertiary);
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: minmax(200px, 2fr) minmax(400px, 8fr); /*각 행(세로줄)의 너비 */
+  height: 90%;
+  min-height: 500px;
+  width: 90%;
+  min-width: 700px;
+  padding: var(--spacing-md);
+  border: 1px solid black;
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-xl);
+}
+
+.page-sidebar {
+  background-color: var(--bg-primary);
+  border-top-left-radius: var(--radius-xl-1);
+  border-bottom-left-radius: var(--radius-xl-1);
+}
+
+.page-workspace {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-secondary);
+  border-top-right-radius: var(--radius-xl-1);
+  border-bottom-right-radius: var(--radius-xl-1);
+}
+
+.page-workspace-head {
+}
+
+.header {
+  height: 50px;
+  border-bottom: 1px solid #636262;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-md);
+}
+.header-button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.header-button:hover {
+  background-color: #d0d0d0;
+}
+.page-workspace-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.page-body {
+  aspect-ratio: 1/1.1414;
+  border: 1px solid var(--border-dark);
+  background-color: var(--bg-primary);
+  margin: var(--spacing-lg);
+}
+
+.cutList {
+  display: grid;
+  position: absolute;
+  inset: 0;
+  padding: 8.95% 8.95% 6% 6%;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-lg);
+  z-index: 1000;
+}
+
+.cut-modal {
+}
