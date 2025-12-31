@@ -11,9 +11,9 @@ import "./Page.css";
 컷 데이터 수정 금지
 */
 
-export default function CutItem({ cut, onClick }) {
+export default function CutItem({ cut, onClick, className }) {
   return (
-    <div className="cut" onClick={onClick}>
+    <div className={`cut ${className}`} onClick={onClick}>
       <p>
         {cut.cutId} : {cut.memo}
       </p>

@@ -18,10 +18,15 @@ export default function CutList({ page, cutMap, openModal }) {
   const sortedCuts = page.cutOrder.map((cutId) => cutMap[cutId]);
   // cutOrder 기준으로 정렬된 컷 배열, id 배열인 cutOrder는 이때만 사용됨
   return (
-    <div className="page-body">
-      <div className="cutList">
+    <div className="page">
+      <div className="cut-basic-frame">
         {sortedCuts.map((cut, index) => (
-          <CutItem key={index} cut={cut} onClick={() => openModal(cut.cutId)} />
+          <CutItem
+            key={index}
+            cut={cut}
+            onClick={() => openModal(cut.cutId)}
+            className="cutList"
+          />
         ))}
       </div>
     </div>
