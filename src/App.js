@@ -39,35 +39,31 @@ function App() {
       title: "Storyboard Project",
       pageOrder: pageOrder,
       pages: pages,
-      // 메타데이터(meta)
-      // ID 생성 규칙, 버전, 변경추적, 서버 동기화 기준 등
-      // 데이터를 관리하기 위한 정보
       meta: {
         nextPageSeq: 25, //-- 차후 변경 예정
         // version: 1,      -- 차후 추가 예정: 서버 저장시 충돌 감지 역할
         // updatedAt: null  -- 차후 추가 예정: 마지막 변경 시각
         // history:[],
       },
-      // selectedPageId, isModalOpen, 스크롤 위치, 임시 UI 플래그 등...
-      // 이런 것들은 "uiState"이니 메타데이터에 넣으면 안됨!
     };
   }
 
   // ▶ UI 상태
-  // [첫 시도]
-  // const [selectedPageID, setSelectePageID] = useState(""); --(Ⅹ)
-  // 없는 pageId, 매번 null 체크 필요...? 의미를 잘 모르겠음
-
-  // [두번째 시도]
-  // const [selectedPageID, setSelectePageID] = useState(project.pageOrder[0]);
-
-  // [세번째 시도]
-  // project에 meta를 추가하면서 uiState도 이런 식으로 관리하면 된다는걸 알게됨
   const [uiState, setUiState] = useState({
     selectedPageId: null,
     selectedCutId: null,
     isCutModalOpen: false,
     uiScale: { zoom: 1.0 },
+    pageListGrid: {
+      columnsPerRow: 5, // 한 줄에 표시할 페이지 수
+      minColumns: 2, // 최소 페이지 수(더 작게는 안됨)
+      maxColumns: 10, // 최대 페이지 수(더 크게는 안됨)
+    },
+    // 아래 두 속성은 차후 에피소드별 설정으로 이동 예정
+    readingDirection: "rtl", // 'rtl' | 'ltr'
+    //--- 읽기 방향
+    sidebarViewMode: "spread", // 'single' | 'spread'
+    //--- 사이드바 뷰 모드, single: 단면, spread: 양면
   });
 
   /*=========================================================
@@ -80,12 +76,7 @@ function App() {
       const page = prev.pages[uiState.selectedPageId];
       if (!page) return prev;
 
-      // const cutId = `cut-${String(prev.meta.nextCutSeq).padStart(6, "0")}`;
       const cutId = `cut-${nanoid(8)}`;
-      // 컷 수는 무한정으로 늘어날 수 있으므로
-      // 시퀀스 기반 ID는 충돌 가능성이 있음
-      // 랜덤 ID 생성 방식인 nanoid를 사용
-
       return {
         ...prev,
         meta: {
@@ -191,22 +182,11 @@ export default App;
 앞으로 추가될 State (별도 관리)
 ❌ 절대 project에 UI 상태 섞지 마라.
 
-
 project 상태 단독소유
 uiState 상태 소유
 상태 변경 함수 정의
 하위 컴포넌트에 함수만 전달
 App 이외의 컴포넌트는 상태 변경 불가(setState 금지)
-
-App
- ├─ PageSidebar
- │   └─ PageListItem
- ├─ PageWorkspace
- │   ├─ PageHeader
- │   ├─ PageMemo
- │   └─ CutList
- │        └─ CutItem
- └─ CutModal
 
  [향후 추가할 undo/redo에 대해서]
  undo/redo는 스냡샷 방식 또는 커맨드(액션)방식으로 이루어지는데

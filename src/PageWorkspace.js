@@ -1,7 +1,6 @@
 import "./Layout.css";
 import PageHeader from "./PageHeader";
 import CutList from "./CutList";
-import { useEffect, useState } from "react";
 import PageList from "./PageList";
 
 /*
@@ -35,27 +34,6 @@ export default function PageWorkspace({
   openModal,
   changeUiScale,
 }) {
-  // [1차 시도]
-  /*
-  const [cutMap, setCutMap] = useState({});
-
-  useEffect(() => {
-    const map = {};
-    if (page !== undefined) {
-      try {
-        page.cuts.forEach((cut) => {
-          map[cut.cutId] = cut;
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    setCutMap(map);
-    console.log("useEffect완료");
-  }, [index]);
-
-  화면이 바껴야 된다는 생각에 pageWorkspace에 state를 둠
-  */
   const makeMap = () => {
     const map = {};
     for (let i = 0; i < page.cutOrder.length; i++) {

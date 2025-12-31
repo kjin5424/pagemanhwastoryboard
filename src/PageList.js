@@ -1,3 +1,5 @@
+import PageItem from "./PageItem";
+
 export default function PageList({ project, selectPage }) {
   return (
     <div>
@@ -5,10 +7,10 @@ export default function PageList({ project, selectPage }) {
         return (
           <div
             key={pageId}
-            onClick={() => selectPage(pageId)}
-            className="page-body"
+            // onClick={() => selectPage(pageId)}
+            className="page-list-grid"
           >
-            {project.pages[pageId].pageNumber}
+            <PageItem className="pageList" />
           </div>
         );
       })}
