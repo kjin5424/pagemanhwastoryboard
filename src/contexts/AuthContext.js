@@ -5,7 +5,7 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children, initialAuth = "owner" }) => {
-  const [auth, setAuth] = useState(initialAuth);
+  const [auth, setAuth] = useState(initialAuth); //-- 차후 수정
 
   const permissions = {
     isOwner: auth === "owner",
@@ -21,3 +21,21 @@ export const AuthProvider = ({ children, initialAuth = "owner" }) => {
     </AuthContext.Provider>
   );
 };
+
+// // 사용 예시
+// function PageCard({ page }) {
+//   const { canEdit, isReadonly } = useAuth();
+
+//   return (
+//     <div className="page-card">
+//       {/* 모든 권한에서 보임 */}
+//       <PageThumbnail page={page} />
+
+//       {/* owner, editor만 수정 가능 */}
+//       {canEdit && <EditButton onClick={handleEdit} />}
+
+//       {/* readonly는 드래그 불가 */}
+//       {!isReadonly && <DragHandle />}
+//     </div>
+//   );
+// }

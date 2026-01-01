@@ -1,5 +1,8 @@
 /* CSS 변수 (색상, 간격 등) */
 /* 값만 정의 (색상, 간격, 크기) */
+/* import 순서는
+import './styles/variables.css';  // 먼저
+import './styles/global.css';     // 나중 */
 
 /* styles/variables.css - CSS 변수 정의만 */
 :root {

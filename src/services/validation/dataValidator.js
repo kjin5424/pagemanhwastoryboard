@@ -65,3 +65,7 @@ export const validateProjectData = (data) => {
 
 //   return data;
 // };
+
+// 서버에서 이상한 데이터 보낼 수도 있음
+// 데이터베이스 오류로 일부 필드 누락 가능
+// 프론트 앱이 터지는 걸 방지
