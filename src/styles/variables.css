@@ -1,0 +1,27 @@
+/* CSS 변수 (색상, 간격 등) */
+/* 값만 정의 (색상, 간격, 크기) */
+
+/* styles/variables.css - CSS 변수 정의만 */
+:root {
+  /* 색상 */
+  --color-primary: #3b82f6;
+  --color-secondary: #64748b;
+  --color-danger: #ef4444;
+  --color-bg: #ffffff;
+  --color-text: #1f2937;
+
+  /* 간격 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+
+  /* 폰트 */
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+
+  /* 레이아웃 */
+  --sidebar-width: 240px;
+  --header-height: 60px;
+}

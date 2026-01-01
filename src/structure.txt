@@ -1,0 +1,106 @@
+src/
+├── App.js                          # 최상위 라우팅 & 전역 상태 (현재는 페이지 관리만)
+│
+├── contexts/
+│   ├── AuthContext.js              # 권한 관리 (readonly/commentonly/editor/owner)
+│   └── DataContext.js              # 전역 데이터 상태 (차후 서버 연동 대비)
+│
+├── components/
+│   ├── common/                     # 모든 화면에서 재사용되는 컴포넌트
+│   │   ├── Modal/
+│   │   │   ├── Modal.jsx           # 기본 모달 wrapper
+│   │   │   ├── ProjectInfoModal.jsx # 프로젝트 전체 정보 모달
+│   │   │   └── ConfirmModal.jsx
+│   │   ├── Button/
+│   │   │   ├── AddButton.jsx
+│   │   │   ├── ExpandButton.jsx
+│   │   │   └── ActionButton.jsx
+│   │   └── Loading/
+│   │       └── Spinner.jsx
+│   │
+│   ├── screens/                    # 각 관리 화면 (라우팅 단위)
+│   │   ├── ProjectManagement/      # [차후] 프로젝트 관리 화면
+│   │   │   ├── index.jsx           # ProjectManagement 컨테이너
+│   │   │   ├── ProjectSidebar.jsx
+│   │   │   ├── ProjectHeader.jsx
+│   │   │   ├── ProjectGrid.jsx
+│   │   │   ├── ProjectCard.jsx
+│   │   │   └── ProjectDetailModal.jsx
+│   │   │
+│   │   ├── EpisodeManagement/      # [차후] 에피소드 관리 화면
+│   │   │   ├── index.jsx
+│   │   │   ├── EpisodeSidebar.jsx
+│   │   │   ├── EpisodeHeader.jsx
+│   │   │   ├── EpisodeList.jsx
+│   │   │   ├── EpisodeItem.jsx
+│   │   │   └── EpisodeDetailModal.jsx
+│   │   │
+│   │   ├── PageManagement/         # [현재 구현] 페이지 관리 화면 ⭐
+│   │   │   ├── index.jsx           # PageManagement 컨테이너
+│   │   │   ├── PageSidebar.jsx     # 페이지 썸네일 리스트
+│   │   │   ├── PageHeader.jsx      # 에피소드 메모 확장 영역
+│   │   │   ├── PageGrid.jsx        # 페이지 그리드 (단면/양면)
+│   │   │   ├── PageCard.jsx        # 개별 페이지 카드
+│   │   │   ├── PageMemoModal.jsx   # 페이지 메모 수정 모달
+│   │   │   └── PageThumbnail.jsx   # 재사용 가능한 썸네일 컴포넌트
+│   │   │
+│   │   └── CutManagement/          # [현재 구현] 컷 관리 화면 ⭐
+│   │       ├── index.jsx           # CutManagement 컨테이너
+│   │       ├── CutSidebar.jsx      # 페이지 목록 (PageManagement와 동일)
+│   │       ├── CutHeader.jsx       # 페이지 메모 + 컷별 메모 드래그 영역
+│   │       ├── CutCanvas.jsx       # 컷 편집 캔버스 (확대/축소/분할)
+│   │       ├── CutGrid.jsx         # 컷 그리드 레이아웃
+│   │       ├── CutItem.jsx         # 개별 컷
+│   │       └── CutToolbar.jsx      # 컷 수정/전체화면 버튼
+│   │
+│   └── layout/                     # 레이아웃 구조
+│       ├── MainLayout.jsx          # Sidebar + Workspace 레이아웃
+│       └── WorkspaceLayout.jsx     # Header + Body 레이아웃
+│
+├── hooks/
+│   ├── auth/
+│   │   └── useAuth.js              # 권한 체크 (canEdit, canComment, isOwner 등)
+│   ├── data/
+│   │   ├── useProject.js           # [차후] 프로젝트 CRUD
+│   │   ├── useEpisode.js           # [차후] 에피소드 CRUD
+│   │   ├── usePage.js              # ⭐ 페이지 CRUD
+│   │   └── useCut.js               # ⭐ 컷 CRUD
+│   └── ui/
+│       ├── useModal.js
+│       ├── useDragAndDrop.js
+│       └── useZoom.js              # 컷 화면 확대/축소
+│
+├── services/
+│   ├── storage/
+│   │   ├── localStorage.js         # 현재 LocalStorage 로직
+│   │   └── apiService.js           # [차후] Spring API 연동
+│   └── validation/
+│       └── dataValidator.js        # 데이터 유효성 검증
+│
+├── utils/
+│   ├── constants/
+│   │   ├── auth.js                 # 권한 상수 (OWNER, EDITOR, ...)
+│   │   ├── layout.js               # 레이아웃 상수 (단면/양면, 그리드 설정)
+│   │   └── defaults.js             # 기본값 (페이지 수, 컷 구조 등)
+│   ├── helpers/
+│   │   ├── idGenerator.js          # pageId, cutId 생성 로직
+│   │   ├── orderManager.js         # cutOrder, pageOrder 관리
+│   │   └── memoHelper.js           # 메모 처리 유틸
+│   └── converters/
+│       └── dataConverter.js        # LocalStorage ↔ Server 데이터 변환
+│
+├── styles/
+│   ├── global.css
+│   ├── variables.css               # CSS 변수 (색상, 간격 등)
+│   ├── common/
+│   │   ├── modal.css
+│   │   ├── button.css
+│   │   └── layout.css
+│   └── screens/
+│       ├── project.css
+│       ├── episode.css
+│       ├── page.css
+│       └── cut.css
+│
+└── types/                          # [차후] TypeScript 전환 대비
+    └── models.js                   # 데이터 모델 인터페이스 (주석으로)
