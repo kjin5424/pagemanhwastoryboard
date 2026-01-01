@@ -1,0 +1,31 @@
+/* styles/global.css - 전역 스타일 적용 */
+/* 실제 스타일 적용 (reset, 공통 클래스) */
+/* import 순서는
+import './styles/variables.css';  // 먼저
+import './styles/global.css';     // 나중 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+  font-size: var(--font-size-md); /* ← variables.css 사용 */
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* 공통 유틸리티 클래스 */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
