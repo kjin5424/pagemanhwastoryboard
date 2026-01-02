@@ -8,7 +8,7 @@ export default function PageSidebar({
   mode = "page", // 'page' | 'cut'
 }) {
   return (
-    <div className="sidebar">
+    <div className="page-sidebar">
       <div className="sidebar-header">
         <h3>프로젝트명</h3>
         <p>에피소드명</p>
