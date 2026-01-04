@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AuthProvider } from "./contexts/AuthContext";
-import { DataProvider, useData } from "./contexts/DataContext";
+import { DataProvider } from "./contexts/DataContext";
 import PageManagement from "./components/screens/Page";
 import CutManagement from "./components/screens/Cut";
 

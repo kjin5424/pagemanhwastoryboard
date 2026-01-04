@@ -1,3 +1,7 @@
+import { useState } from "react";
+import CutHeader from "./CutHeader";
+import CutCanvas from "./CutCanvas";
+import PageSidebar from "../Page/PageSidebar";
 // CutManagement 컨테이너
 // 컷 관리: 현재 페이지, 줌 레벨, 컷 편집 모드
 
@@ -8,7 +12,7 @@ export default function CutManagement() {
 
   return (
     <div className="cut-management">
-      <CutSidebar currentPageId={currentPageId} />
+      <PageSidebar currentPageId={currentPageId} />
       <div className="workspace">
         <CutHeader />
         <CutCanvas pageId={currentPageId} zoom={zoomLevel} />

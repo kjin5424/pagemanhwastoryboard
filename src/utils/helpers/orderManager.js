@@ -23,6 +23,7 @@ export const reorderItems = (order, fromIndex, toIndex) => {
   newOrder.splice(toIndex, 0, moved);
   // toIndex=2 위치에, 0개 제거하고, 'ep-0001' 삽입
   // newOrder = ['ep-0002', 'ep-0003', 'ep-0001']
+
   return newOrder;
 };
 
